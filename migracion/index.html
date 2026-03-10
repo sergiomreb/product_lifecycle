@@ -245,7 +245,7 @@
       Estrategia de Migración Producto
     </h1>
     <p style="font-size:17px; color:var(--text-secondary); font-weight:400; letter-spacing:-0.01em;">
-      Transición al nuevo modelo tecnológico · Eliminación de dependencias legacy · 05 de Marzo de 2026
+      Transición al nuevo modelo tecnológico · Eliminación de dependencias legacy
     </p>
   </div>
 
@@ -266,7 +266,7 @@
           <div style="font-size:15px; font-weight:600;">Modelo IOP</div>
         </div>
         <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
-          El objetivo es migrar todo al nuevo modelo IOP para <strong style="color:var(--text-primary)">mejorar la eficiencia y reducir costos operativos</strong>, garantizando una transición fluida hacia la nueva tecnología.
+          El objetivo es migrar todo al nuevo modelo IOP para <strong style="color:var(--text-primary);">mejorar la eficiencia y reducir costos operativos</strong>, garantizando una transición fluida hacia la nueva tecnología.
         </div>
       </div>
 
@@ -276,7 +276,7 @@
           <div style="font-size:15px; font-weight:600;">Dependencias Legacy</div>
         </div>
         <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
-          Se busca eliminar las dependencias intermedias y legacy que afectan el rendimiento, asegurando que los sistemas sean <strong style="color:var(--text-primary);">más ágiles y menos propensos a fallos</strong> durante la migración.
+          Se busca ir eliminando paulatinamente las diferentes dependencias legacy, abordando desde el momento de la carga de la información hasta el momento de su explotación yendo de la mano con las herramientas que deben gestionar esa información
         </div>
       </div>
 
@@ -305,7 +305,7 @@
       </div>
       <div style="font-size:20px; color:var(--text-tertiary);">→</div>
       <div style="padding:12px 20px; border-radius:10px; background:rgba(40,247,110,0.15); border:1px solid rgba(40,247,110,0.3); font-size:14px; font-weight:600; color:var(--accent-green);">
-        Nuevo enfoque: optimizar lo existente
+        Nuevo enfoque: Reaprovechar los flujos existentes
       </div>
     </div>
 
@@ -337,7 +337,7 @@
       </div>
     </div>
     <p style="font-size:15px; color:var(--text-secondary); line-height:1.7; max-width:760px;">
-      La migración al nuevo modelo busca <strong style="color:var(--text-primary)">eliminar las dependencias legacy</strong> como watchers y dataloads, asegurando una transición fluida y eficiente hacia un entorno más moderno y ágil.
+      La migración al nuevo modelo busca <strong style="color:var(--text-primary);">eliminar las dependencias legacy</strong> como watchers y dataloads, asegurando una transición fluida y eficiente hacia un entorno más moderno y ágil.
     </p>
 
     <div class="cards-2" style="margin-top:24px; margin-bottom:0;">
@@ -430,8 +430,8 @@
       <div class="reto-item">
         <div class="reto-icon">🔀</div>
         <div>
-          <div class="reto-title">Diferencias de ritmo entre equipos</div>
-          <div class="reto-body">Los distintos equipos avanzan a velocidades diferentes, lo que genera cuellos de botella en la coordinación.</div>
+          <div class="reto-title">Diferencias en las prioridades entre equipos</div>
+          <div class="reto-body">Los distintos equipos tienen prioridades diferentes, lo que genera cuellos de botella en la coordinación.</div>
         </div>
       </div>
       <div class="reto-item">
@@ -486,13 +486,321 @@
 
   </div>
 
-  <!-- 6. Roadmap de Migración — Gantt -->
-  <div class="surface section-card reveal" data-delay="0.3" style="padding-bottom:0; overflow:hidden;">
+  <!-- 6. Deprecar Watchers de Producto -->
+  <div class="surface section-card reveal" data-delay="0.3">
+    <div class="section-header">
+      <div class="section-accent" style="background: var(--accent-red);"></div>
+      <div>
+        <div class="section-title">Estado actual de los watchers</div>
+        <div class="section-desc">Muestra el estado actual de los watchers por funcionalidad y marca</div>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto; margin: 0 -32px; padding: 0 32px;">
+      <table style="width:100%; border-collapse:collapse; font-size:12px;">
+        <thead>
+          <tr style="background:rgba(255,255,255,0.05); border-bottom:1px solid var(--border);">
+            <th style="padding:12px 8px; text-align:left; font-weight:700; color:var(--text-secondary);">WATCHERS</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--text-secondary);">ZA</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--text-secondary);">MD</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--text-secondary);">OY</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--text-secondary);">BK</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--text-secondary);">ZH</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--text-secondary);">ST</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--text-secondary);">PB</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--text-secondary);">LF</th>
+            <th style="padding:12px 8px; text-align:center; font-weight:700; color:var(--accent-green);">% OK</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Estructura Producto</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Estructura Estilismo</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Estructura Bundle</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Deleted PRoducto</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Deleted Estilismo</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Deleted Bundle</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Precios Producto</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Precios Estilismo</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">12.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Precios Bundle</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">12.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Medias Producto</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">37.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Medias Estilismo</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">37.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Medias Bun</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">37.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Extended Producto</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Extended Estilismo</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Extended Bundle</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Disponibilidad Producto</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">12.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Disponibilidad Estilismo</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">12.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Disponibilidad Bundle</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">12.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Exclusiones Producto</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Exclusiones Estilismo</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Exclusiones Bundle</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green);">✓</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-orange);">⬀</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 8px; color:var(--text-secondary); font-weight:600;">Exclusiones SKU</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-red);">✕</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.05); border-top:1px solid var(--border);">
+            <td style="padding:12px 8px; color:var(--accent-green); font-weight:700;">SCORE</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">39%</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">13%</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">13%</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">0%</td>
+            <td style="padding:12px 8px; text-align:center; color:var(--accent-green); font-weight:700;">8%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7. Roadmap de Migración — Gantt -->
+  <div class="surface section-card reveal" data-delay="0.35" style="padding-bottom:0; overflow:hidden;">
     <div class="section-header" style="padding:0 0 0 0; margin-bottom:24px;">
       <div class="section-accent" style="background: var(--accent-cyan);"></div>
       <div>
         <div class="section-title">Roadmap de Migración</div>
-        <div class="section-desc" style="margin-bottom:0;">Implantación del nuevo modelo · Progreso hacia GridData · Enero – Septiembre</div>
+        <div class="section-desc" style="margin-bottom:0;">Apagado Watchers · Enero – Septiembre</div>
       </div>
     </div>
 
@@ -513,6 +821,8 @@
           <div class="gantt-month">Agosto</div>
           <div class="gantt-month">Septiembre</div>
         </div>
+
+        <!-- Quarter markers - Removed -->
 
         <!-- Rows -->
         <div class="gantt-row">
@@ -624,8 +934,8 @@
     </div>
   </div>
 
-  <!-- 7. Conclusiones -->
-  <div class="surface section-card reveal" data-delay="0.35">
+  <!-- 8. Conclusiones -->
+  <div class="surface section-card reveal" data-delay="0.4">
     <div class="section-header">
       <div class="section-accent" style="background: var(--accent-green);"></div>
       <div>
