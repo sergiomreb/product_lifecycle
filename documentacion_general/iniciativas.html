@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciativas — Product Lifecycle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+  :root {
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --surface: rgba(255,255,255,0.05);
+    --surface-hover: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.1);
+    --border-strong: rgba(255,255,255,0.2);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255,255,255,0.7);
+    --text-tertiary: rgba(255,255,255,0.5);
+    --accent-blue: #00a8ff;
+    --accent-green: #28f76e;
+    --accent-orange: #ffb700;
+    --accent-red: #ff4545;
+    --accent-cyan: #0891b2;
+    --accent-purple: #a855f7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    overflow-x: hidden;
+  }
+
+  .noise {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 1000; opacity: 0.018;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .surface {
+    background: var(--surface);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .surface:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-strong);
+  }
+
+  .label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--text-tertiary);
+  }
+
+  .section-card {
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 17px; font-weight: 600;
+    letter-spacing: -0.021em; margin-bottom: 4px;
+  }
+  .section-desc {
+    font-size: 13px; color: var(--text-tertiary);
+    margin-bottom: 24px; line-height: 1.5;
+  }
+
+  .section-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+  .section-accent { width: 3px; border-radius: 2px; min-height: 36px; flex-shrink: 0; }
+
+  .page-wrapper { max-width: 1280px; margin: 0 auto; padding: 60px 40px; }
+  @media (max-width: 768px) { .page-wrapper { padding: 40px 20px; } }
+
+  .reveal { opacity: 1; transform: translateY(0); }
+
+  .initiative-card {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .initiative-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+
+  .initiative-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .initiative-content {
+    flex: 1;
+  }
+
+  .initiative-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .initiative-context {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .initiative-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(0,168,255,0.15);
+    border: 1px solid rgba(0,168,255,0.3);
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .initiative-link:hover {
+    background: rgba(0,168,255,0.25);
+    border-color: rgba(0,168,255,0.5);
+  }
+
+  .divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  .initiative-header {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    cursor: pointer;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .initiative-header:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .initiative-toggle {
+    font-size: 16px;
+    color: var(--accent-cyan);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .initiative-header.open .initiative-toggle {
+    transform: rotate(90deg);
+  }
+
+  .initiative-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.16,1,0.3,1), margin-bottom 0.3s ease, padding-bottom 0.3s ease;
+  }
+  .initiative-body.open {
+    max-height: 500px;
+    margin-bottom: 12px;
+  }
+
+  .initiative-body-content {
+    padding: 0 24px 24px 44px;
+    border-left: 1px solid rgba(255,255,255,0.08);
+    margin-left: 0;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+  }
+
+  .status-discovering {
+    background: rgba(255,183,0,0.15);
+    color: var(--accent-orange);
+    border: 1px solid rgba(255,183,0,0.3);
+  }
+
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<div class="page-wrapper">
+
+  <!-- Header -->
+  <div class="reveal" style="margin-bottom: 48px;" data-delay="0">
+    <p class="label" style="margin-bottom: 12px;">Product Lifecycle · Equipo Responsable de Producto</p>
+    <h1 style="font-size: clamp(32px,5vw,56px); font-weight:600; letter-spacing:-0.021em; line-height:1.1; margin-bottom:12px;">
+      Iniciativas y Proyectos
+    </h1>
+    <p style="font-size:17px; color:var(--text-secondary); font-weight:400; letter-spacing:-0.01em;">
+      Documentación interna de iniciativas en curso y cartera
+    </p>
+  </div>
+
+  <!-- 1. Contexto -->
+  <div class="surface section-card reveal" style="margin-bottom:24px;" data-delay="0.05">
+    <div class="section-header">
+      <div class="section-accent" style="background: var(--accent-blue);"></div>
+      <div>
+        <div class="section-title">Contexto</div>
+        <div class="section-desc">Propósito de este documento</div>
+      </div>
+    </div>
+    <p style="font-size:15px; color:var(--text-secondary); line-height:1.7;">
+      Este documento centraliza la información interna sobre las <strong style="color:var(--text-primary);">iniciativas existentes</strong> en curso o en cartera del equipo de Product Lifecycle. Cada iniciativa incluye una <strong style="color:var(--text-primary);">breve explicación</strong> del contexto, los objetivos que se persiguen, así como los <strong style="color:var(--text-primary);">temas pendientes a resolver</strong> y enlaces directos para acceder a más información detallada en los sistemas de seguimiento del proyecto.
+    </p>
+  </div>
+
+  <!-- 2. Iniciativas -->
+  <div class="reveal" data-delay="0.1" style="margin-bottom:24px;">
+    <p class="label" style="margin-bottom:16px;">Iniciativas</p>
+    
+    <div class="surface section-card" style="padding: 32px; overflow: visible; margin-bottom: 0;">
+      <div class="section-header" style="padding: 0 0 24px 0; margin-bottom: 24px;">
+        <div class="section-accent" style="background: var(--accent-cyan);"></div>
+        <div>
+          <div class="section-title">Iniciativas en Curso y Cartera</div>
+          <div class="section-desc">Proyectos activos y en planificación</div>
+        </div>
+      </div>
+
+      <!-- Iniciativa 1: Implantación flujo publicación en cadenas -->
+      <div class="initiative-header" onclick="toggleInitiative(this)">
+        <span class="initiative-toggle">▶</span>
+        <div class="initiative-content">
+          <div class="initiative-title">Implantación flujo publicación en cadenas</div>
+          <div style="font-size: 13px; color: var(--text-tertiary);">Estado: En curso</div>
+        </div>
+      </div>
+      <div class="initiative-body">
+        <div class="initiative-body-content">
+          <div class="initiative-context">
+            Lo que se busca con esta iniciativa es migrar el concepto de publicación de los componentes comerciales, dejando de usar las exclusiones y el buyable a ese nivel en favor de usar el milestone de publicación asociado.
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+            <a href="publicacion_cadenas_estado.html" class="initiative-link">
+              <span>Ver estado de implantación</span>
+              <span>→</span>
+            </a>
+            <a href="https://jira.inditex.com/jira/browse/PRODUCT-1517" target="_blank" rel="noopener noreferrer" class="initiative-link">
+              <span>Ver en JIRA</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Iniciativa 2: Precios exclusivos online -->
+      <div class="initiative-header" onclick="toggleInitiative(this)">
+        <span class="initiative-toggle">▶</span>
+        <div class="initiative-content">
+          <div class="initiative-title">Precios exclusivos online</div>
+          <div style="font-size: 13px; color: var(--text-tertiary);">Estado: Discovering</div>
+        </div>
+      </div>
+      <div class="initiative-body">
+        <div class="initiative-body-content">
+          <div class="initiative-context">
+            Iniciativa para gestionar precios exclusivos en canales online, permitiendo diferenciación comercial por canal de venta y ofreciendo mayor flexibilidad en la estrategia de pricing.
+          </div>
+          <span class="status-badge status-discovering">Discovering</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Footer -->
+  <div style="text-align:center; padding-top:40px; border-top: 1px solid var(--border);">
+    <p style="font-size:12px; color:var(--text-tertiary);">Iniciativas Product Lifecycle · Equipo Responsable de Producto · 2026</p>
+  </div>
+
+</div>
+
+<script>
+  function toggleInitiative(header) {
+    header.classList.toggle('open');
+    const body = header.nextElementSibling;
+    if (body && body.classList.contains('initiative-body')) {
+      body.classList.toggle('open');
+    }
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll('.reveal').forEach((el) => {
+    const delay = parseFloat(el.getAttribute('data-delay') || 0);
+    gsap.fromTo(el,
+      { opacity: 0, y: 32 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" },
+        delay
+      }
+    );
+  });
+</script>
+</body>
+</html>
