@@ -249,7 +249,21 @@
     </p>
   </div>
 
-  <!-- 1. Estrategia Inicial -->
+  <!-- 1. Contexto -->
+  <div class="surface section-card reveal" style="margin-bottom:24px;" data-delay="0.05">
+    <div class="section-header">
+      <div class="section-accent" style="background: var(--accent-blue);"></div>
+      <div>
+        <div class="section-title">Contexto</div>
+        <div class="section-desc">Estado actual de la migración</div>
+      </div>
+    </div>
+    <p style="font-size:15px; color:var(--text-secondary); line-height:1.7;">
+      El objetivo inicial del programa de migración contemplaba completar el apagado del sistema actual en octubre de 2026. Tras analizar el progreso real de la migración, el volumen pendiente y las dependencias identificadas, se ha concluido que <strong style="color:var(--text-primary);">no será posible alcanzar ese objetivo en el plazo inicialmente previsto.</strong>
+    </p>
+  </div>
+
+  <!-- 2. Estrategia Inicial -->
   <div class="surface section-card reveal" data-delay="0.05">
     <div class="section-header">
       <div class="section-accent" style="background: var(--accent-orange);"></div>
@@ -283,7 +297,7 @@
     </div>
   </div>
 
-  <!-- 2. Evolución del Enfoque -->
+  <!-- 3. Evolución del Enfoque -->
   <div class="surface section-card reveal" data-delay="0.1">
     <div class="section-header">
       <div class="section-accent" style="background: var(--accent-green);"></div>
@@ -327,32 +341,7 @@
 
   <hr class="divider">
 
-  <!-- 3. Contexto y Objetivos -->
-  <div class="surface section-card reveal" style="margin-bottom:24px;" data-delay="0.15">
-    <div class="section-header">
-      <div class="section-accent" style="background: var(--accent-blue);"></div>
-      <div>
-        <div class="section-title">Contexto y Objetivos</div>
-        <div class="section-desc">Migrar al nuevo modelo tecnológico</div>
-      </div>
-    </div>
-    <p style="font-size:15px; color:var(--text-secondary); line-height:1.7; max-width:760px;">
-      La migración al nuevo modelo busca <strong style="color:var(--text-primary)">eliminar las dependencias legacy</strong> como watchers y dataloads, asegurando una transición fluida y eficiente hacia un entorno más moderno y ágil.
-    </p>
-
-    <div class="cards-2" style="margin-top:24px; margin-bottom:0;">
-      <div style="padding:20px; border-radius:14px; background:rgba(0,168,255,0.1); border:1px solid rgba(0,168,255,0.2);">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:8px;">Objetivo principal</div>
-        <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Eliminar el 100% de dependencias de watchers y sistemas legacy para reducir complejidad operativa.</div>
-      </div>
-      <div style="padding:20px; border-radius:14px; background:rgba(40,247,110,0.1); border:1px solid rgba(40,247,110,0.2);">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent-green); margin-bottom:8px;">Resultado esperado</div>
-        <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Entorno ágil basado en el nuevo modelo IOP, con importación de datos y apagado ordenado de sistemas legacy.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4. Equipos y Responsabilidades -->
+  <!-- 3. Equipos y Responsabilidades -->
   <div class="reveal" data-delay="0.2" style="margin-bottom:24px;">
     <p class="label" style="margin-bottom:16px;">Equipos y Responsabilidades</p>
     <div class="two-col" style="margin-bottom:0;">
@@ -1310,6 +1299,53 @@
           <div class="gantt-legend-item gantt-dot-green">Post-implementación</div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- 7. Preguntas Esperadas -->
+  <div class="surface section-card reveal" data-delay="0.38">
+    <div class="section-header">
+      <div class="section-accent" style="background: var(--accent-orange);"></div>
+      <div>
+        <div class="section-title">Preguntas Esperadas</div>
+        <div class="section-desc">Respuestas a dudas frecuentes sobre la migración</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      
+      <!-- Pregunta 1 -->
+      <div style="padding: 20px; border-radius: 14px; background: rgba(255,183,0,0.08); border: 1px solid rgba(255,183,0,0.2);">
+        <div style="font-size: 14px; font-weight: 700; color: var(--accent-orange); margin-bottom: 12px;">¿Por qué no llegamos con extended-info?</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+          No se ha llegado a analizar completamente, pero en el punto en el que estamos creemos que la solución de <strong style="color: var(--text-primary);">"suplantar el evento del watcher"</strong> para este caso no es lo mejor, ya que no queremos seguir teniendo una explosión de eventos por tiendas.
+        </div>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div style="padding: 20px; border-radius: 14px; background: rgba(0,168,255,0.08); border: 1px solid rgba(0,168,255,0.2);">
+        <div style="font-size: 14px; font-weight: 700; color: var(--accent-blue); margin-bottom: 12px;">¿Qué complejidades os encontráis?</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+          Estamos en un escenario en el que queremos montar un nuevo modelo pero en el que no tenemos un sistema origen <strong style="color: var(--text-primary);">100% IOP</strong> para obtener toda la información y tenemos que estar haciendo adaptaciones en dos servicios distintos según el origen de la información.
+        </div>
+      </div>
+
+      <!-- Pregunta 3 -->
+      <div style="padding: 20px; border-radius: 14px; background: rgba(40,247,110,0.08); border: 1px solid rgba(40,247,110,0.2);">
+        <div style="font-size: 14px; font-weight: 700; color: var(--accent-green); margin-bottom: 12px;">¿Qué pasa con los dataloads?</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+          En el camino del nuevo modelo vamos aprovechando para ir migrando funcionalidad de los dataloads según vamos necesitando. Por ejemplo <strong style="color: var(--text-primary);">familias, subfamilias, colores</strong> ya los cargamos de IOP y podríamos plantear apagar esa parte del dataload.
+        </div>
+      </div>
+
+      <!-- Pregunta 4 -->
+      <div style="padding: 20px; border-radius: 14px; background: rgba(255,69,69,0.08); border: 1px solid rgba(255,69,69,0.2);">
+        <div style="font-size: 14px; font-weight: 700; color: var(--accent-red); margin-bottom: 12px;">¿Se habla de watchers, pero se están eliminando escrituras en DB2?</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+          En la mayoría de los casos eso no se ha podido mejorar. Ecomload sigue cargando los productos en DB2 y los cambios que entran por APICE se siguen persistiendo también en DB2. Lo que estamos haciendo es <strong style="color: var(--text-primary);">cambios para no necesitar ese dato en DB2</strong> y el siguiente paso sería dejar de escribirlo cuando ya no hay dependencias en legacy.
+        </div>
+      </div>
+
     </div>
   </div>
 
