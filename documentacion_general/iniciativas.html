@@ -186,7 +186,7 @@
     transition: max-height 0.3s cubic-bezier(0.16,1,0.3,1), margin-bottom 0.3s ease, padding-bottom 0.3s ease;
   }
   .initiative-body.open {
-    max-height: 500px;
+    max-height: 2000px;
     margin-bottom: 12px;
   }
 
@@ -211,6 +211,18 @@
     background: rgba(255,183,0,0.15);
     color: var(--accent-orange);
     border: 1px solid rgba(255,183,0,0.3);
+  }
+
+  .status-in-progress {
+    background: rgba(40,247,110,0.15);
+    color: var(--accent-green);
+    border: 1px solid rgba(40,247,110,0.3);
+  }
+
+  .status-open {
+    background: rgba(0,168,255,0.15);
+    color: var(--accent-blue);
+    border: 1px solid rgba(0,168,255,0.3);
   }
 
 </style>
@@ -258,46 +270,228 @@
         </div>
       </div>
 
-      <!-- Iniciativa 1: Implantación flujo publicación en cadenas -->
+      <!-- Q1 2026 Section -->
       <div class="initiative-header" onclick="toggleInitiative(this)">
         <span class="initiative-toggle">▶</span>
         <div class="initiative-content">
-          <div class="initiative-title">Implantación flujo publicación en cadenas</div>
-          <div style="font-size: 13px; color: var(--text-tertiary);">Estado: En curso</div>
+          <div class="initiative-title">Q1 2026</div>
+          <div style="font-size: 13px; color: var(--text-tertiary);">Iniciativas del primer trimestre</div>
         </div>
       </div>
       <div class="initiative-body">
         <div class="initiative-body-content">
-          <div class="initiative-context">
-            Lo que se busca con esta iniciativa es migrar el concepto de publicación de los componentes comerciales, dejando de usar las exclusiones y el buyable a ese nivel en favor de usar el milestone de publicación asociado.
+
+          <!-- Iniciativa 1: Implantación flujo publicación en cadenas -->
+          <div class="initiative-header" onclick="toggleInitiative(this)">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Implantación flujo publicación en cadenas</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: In Progress</div>
+            </div>
           </div>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
-            <a href="publicacion_cadenas_estado.html" class="initiative-link">
-              <span>Ver estado de implantación</span>
-              <span>→</span>
-            </a>
-            <a href="https://jira.inditex.com/jira/browse/PRODUCT-1517" target="_blank" rel="noopener noreferrer" class="initiative-link">
-              <span>Ver en JIRA</span>
-              <span>→</span>
-            </a>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Lo que se busca con esta iniciativa es migrar el concepto de publicación de los componentes comerciales, dejando de usar las exclusiones y el buyable a ese nivel en favor de usar el milestone de publicación asociado.
+              </div>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+                <a href="publicacion_cadenas_estado.html" class="initiative-link">
+                  <span>Ver estado de implantación</span>
+                  <span>→</span>
+                </a>
+                <a href="https://jira.inditex.com/jira/browse/PRODUCT-1517" target="_blank" rel="noopener noreferrer" class="initiative-link">
+                  <span>Ver en JIRA</span>
+                  <span>→</span>
+                </a>
+              </div>
+              <span class="status-badge status-in-progress">In Progress</span>
+            </div>
           </div>
+
+          <!-- Iniciativa 2: Nuevo modelo de etiquetado -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Nuevo modelo de etiquetado</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: In Progress</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Diseño e implementación de un nuevo sistema de etiquetado para productos que mejore la flexibilidad y mantenibilidad del modelo actual, permitiendo una mejor categorización y búsqueda de artículos en los catálogos.
+              </div>
+              <span class="status-badge status-in-progress">In Progress</span>
+            </div>
+          </div>
+
+          <!-- Iniciativa 3: Apagar integración con VUE -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Apagar integración con VUE en favor de VisualTagging</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: In Progress</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Migración de la integración con VUE hacia la solución de VisualTagging, eliminando dependencias legadas y modernizando la arquitectura de tagging visual del producto.
+              </div>
+              <span class="status-badge status-in-progress">In Progress</span>
+            </div>
+          </div>
+
+          <!-- Iniciativa 4: Centralización de inicio de prewarming -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Centralización de inicio de prewarming</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: In Progress</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Consolidación centralizada de los procesos de prewarming para optimizar la experiencia de usuario y reducir tiempos de carga en aplicaciones, mejorando la eficiencia del sistema.
+              </div>
+              <span class="status-badge status-in-progress">In Progress</span>
+            </div>
+          </div>
+
+          <!-- Iniciativa 5: Eliminar dependencias DB2 con XMEDIA -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Eliminar dependencias DB2 con el XMEDIA</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: In Progress</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Desacoplamiento de las dependencias de DB2 en el módulo XMEDIA, modernizando la arquitectura y permitiendo mayor flexibilidad en la gestión de datos y compatibilidad con nuevas tecnologías.
+              </div>
+              <span class="status-badge status-in-progress">In Progress</span>
+            </div>
+          </div>
+
+          <!-- Iniciativa 6: Migración exclusiones libnopa a IOP -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Migración exclusiones libnopa a IOP</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: In Progress</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Migración del sistema de exclusiones desde libnopa hacia la plataforma IOP, mejorando la mantenibilidad y permitiendo una mejor integración con los servicios modernos de la plataforma.
+              </div>
+              <span class="status-badge status-in-progress">In Progress</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Iniciativa 2: Precios exclusivos online -->
+      <!-- Q2 2026 Section -->
       <div class="initiative-header" onclick="toggleInitiative(this)">
         <span class="initiative-toggle">▶</span>
         <div class="initiative-content">
-          <div class="initiative-title">Precios exclusivos online</div>
-          <div style="font-size: 13px; color: var(--text-tertiary);">Estado: Discovering</div>
+          <div class="initiative-title">Q2 2026</div>
+          <div style="font-size: 13px; color: var(--text-tertiary);">Iniciativas del segundo trimestre</div>
         </div>
       </div>
       <div class="initiative-body">
         <div class="initiative-body-content">
-          <div class="initiative-context">
-            Iniciativa para gestionar precios exclusivos en canales online, permitiendo diferenciación comercial por canal de venta y ofreciendo mayor flexibilidad en la estrategia de pricing.
+
+          <!-- Iniciativa: Precios exclusivos online -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Precios exclusivos online</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: Open</div>
+            </div>
           </div>
-          <span class="status-badge status-discovering">Discovering</span>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Iniciativa para gestionar precios exclusivos en canales online, permitiendo diferenciación comercial por canal de venta y ofreciendo mayor flexibilidad en la estrategia de pricing.
+              </div>
+              <span class="status-badge status-open">Open</span>
+            </div>
+          </div>
+
+          <!-- Iniciativa: Migrar dependencias de DB2 de Ecomload -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Migrar dependencias de DB2 de Ecomload</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: Open</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Migración de las dependencias de DB2 utilizadas por el módulo Ecomload hacia arquitecturas modernas, mejorando la escalabilidad y reduciendo la deuda técnica.
+              </div>
+              <span class="status-badge status-open">Open</span>
+            </div>
+          </div>
+
+          <!-- Iniciativa: Eliminar dependencia de ecommerce para lanzar Ecomload -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Eliminar dependencia de ecommerce para lanzar Ecomload</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: Open</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Desacoplamiento de Ecomload del módulo de ecommerce, permitiendo su despliegue independiente y reduciendo dependencias innecesarias en el ecosistema de productos.
+              </div>
+              <span class="status-badge status-open">Open</span>
+            </div>
+          </div>
+
+          <!-- Iniciativa: Migración información personalización a IOP en ZARA -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Migración información personalización a IOP en ZARA</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: Open</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Migración de los datos de personalización desde sistemas legados hacia la plataforma IOP para ZARA, mejorando la capacidad de personalización y consistencia de datos.
+              </div>
+              <span class="status-badge status-open">Open</span>
+            </div>
+          </div>
+
+          <!-- Iniciativa: Adopción Claims técnicos Oysho -->
+          <div class="initiative-header" onclick="toggleInitiative(this)" style="margin-bottom: 12px;">
+            <span class="initiative-toggle">▶</span>
+            <div class="initiative-content">
+              <div class="initiative-title">Adopción Claims técnicos Oysho</div>
+              <div style="font-size: 13px; color: var(--text-tertiary);">Estado: Open</div>
+            </div>
+          </div>
+          <div class="initiative-body">
+            <div class="initiative-body-content">
+              <div class="initiative-context">
+                Implementación del sistema de claims técnicos en la marca Oysho, mejorando la gestión de reclamaciones técnicas y optimizando los procesos de soporte y seguimiento.
+              </div>
+              <span class="status-badge status-open">Open</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -315,6 +509,10 @@
 
 <script>
   function toggleInitiative(header) {
+    // Detener propagación del evento si es un evento anidado
+    if (event) {
+      event.stopPropagation();
+    }
     header.classList.toggle('open');
     const body = header.nextElementSibling;
     if (body && body.classList.contains('initiative-body')) {

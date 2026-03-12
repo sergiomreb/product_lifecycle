@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciativas Product Lifecycle — Índice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f0f0f;
+      --bg-secondary: #1a1a1a;
+      --surface: rgba(255,255,255,0.05);
+      --surface-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.2);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.7);
+      --text-tertiary: rgba(255,255,255,0.5);
+      --accent-blue: #00a8ff;
+      --accent-green: #28f76e;
+      --accent-orange: #ffb700;
+      --accent-red: #ff4545;
+      --accent-cyan: #0891b2;
+      --accent-purple: #a855f7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+      overflow-x: hidden;
+    }
+
+    .page-wrapper { max-width: 1280px; margin: 0 auto; padding: 60px 40px; }
+    @media (max-width: 768px) { .page-wrapper { padding: 40px 20px; } }
+
+    .header { margin-bottom: 48px; }
+    .label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    h1 { font-size: clamp(32px,5vw,56px); font-weight: 600; letter-spacing: -0.021em; line-height: 1.1; margin-bottom: 12px; }
+    .subtitle { font-size: 17px; color: var(--text-secondary); font-weight: 400; letter-spacing: -0.01em; }
+
+    .initiatives-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .initiative-card {
+      background: var(--surface);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .initiative-card:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-strong);
+      transform: translateY(-4px);
+    }
+
+    .initiative-card h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .initiative-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+
+    .status-in-progress {
+      background: rgba(40,247,110,0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(40,247,110,0.3);
+    }
+
+    .status-open {
+      background: rgba(0,168,255,0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(0,168,255,0.3);
+    }
+
+    .status-discovering {
+      background: rgba(255,183,0,0.15);
+      color: var(--accent-orange);
+      border: 1px solid rgba(255,183,0,0.3);
+    }
+
+    .links-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: rgba(0,168,255,0.15);
+      border-color: rgba(0,168,255,0.3);
+      color: var(--accent-blue);
+    }
+
+    .btn-primary:hover {
+      background: rgba(0,168,255,0.25);
+      border-color: rgba(0,168,255,0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="header">
+    <p class="label">Product Lifecycle · Equipo Responsable de Producto</p>
+    <h1>Iniciativas y Proyectos</h1>
+    <p class="subtitle">Documentación de iniciativas en curso y cartera</p>
+  </div>
+
+  <div class="initiatives-grid">
+    <!-- Q1 2026 -->
+    
+    <!-- Iniciativa 0: [ZARA] Rollout implantación precios -->
+    <div class="initiative-card">
+      <h2>[ZARA] Rollout implantación precios</h2>
+      <p>Lanzamiento operativo del nuevo modelo de precios en ZARA, extendiendo la adopción a nivel de cadena completa.</p>
+      <span class="status-badge status-in-progress">Active</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1506" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/rollout-precios-zara-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 1: Implantación flujo publicación en cadenas -->
+    <div class="initiative-card">
+      <h2>Implantación flujo publicación en cadenas</h2>
+      <p>Migración del concepto de publicación de componentes comerciales hacia el milestone de publicación.</p>
+      <span class="status-badge status-in-progress">In Progress</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1517" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="publicacion_cadenas_estado.html" class="btn btn-secondary">
+          <span>Estado implantación</span>
+          <span>→</span>
+        </a>
+        <a href="projects/implantacion-flujo-publicacion-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 2: Nuevo modelo de etiquetado -->
+    <div class="initiative-card">
+      <h2>Nuevo modelo de etiquetado</h2>
+      <p>Sistema de etiquetado mejorado que permite mejor categorización y búsqueda de artículos en catálogos.</p>
+      <span class="status-badge status-in-progress">In Progress</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PGCOMERC-251" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/nuevo-modelo-etiquetado-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 3: Apagar integración con VUE -->
+    <div class="initiative-card">
+      <h2>Apagar integración con VUE en favor de VisualTagging</h2>
+      <p>Migración de VUE hacia VisualTagging, eliminando dependencias legadas y modernizando la arquitectura.</p>
+      <span class="status-badge status-in-progress">In Progress</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1407" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/apagar-integracion-vue-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 4: Centralización de prewarming -->
+    <div class="initiative-card">
+      <h2>Centralización de inicio de prewarming</h2>
+      <p>Consolidación centralizada de procesos de prewarming para optimizar experiencia de usuario y tiempos de carga.</p>
+      <span class="status-badge status-in-progress">In Progress</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1328" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/centralizacion-prewarming-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 5: Eliminar dependencias DB2 con XMEDIA -->
+    <div class="initiative-card">
+      <h2>Eliminar dependencias DB2 con el XMEDIA</h2>
+      <p>Desacoplamiento de dependencias DB2 en XMEDIA, modernizando arquitectura y mejorando flexibilidad.</p>
+      <span class="status-badge status-in-progress">In Progress</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1395" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/eliminar-db2-xmedia-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 6: Migración exclusiones libnopa a IOP -->
+    <div class="initiative-card">
+      <h2>Migración exclusiones libnopa a IOP</h2>
+      <p>Migración del sistema de exclusiones desde libnopa a IOP, mejorando mantenibilidad e integración.</p>
+      <span class="status-badge status-in-progress">In Progress</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-943" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/migracion-exclusiones-iop-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Q2 2026 -->
+
+    <!-- Iniciativa 7: Precios exclusivos online -->
+    <div class="initiative-card">
+      <h2>Precios exclusivos online</h2>
+      <p>Gestión de precios exclusivos en canales online, permitiendo diferenciación comercial y flexibilidad.</p>
+      <span class="status-badge status-open">Open</span>
+      <div class="links-group">
+        <a href="projects/precios-exclusivos-online-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 8: Migrar dependencias de DB2 de Ecomload -->
+    <div class="initiative-card">
+      <h2>Migrar dependencias de DB2 de Ecomload</h2>
+      <p>Migración de dependencias DB2 en Ecomload hacia arquitecturas modernas, mejorando escalabilidad.</p>
+      <span class="status-badge status-open">Open</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1391" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/migracion-db2-ecomload-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 9: Eliminar dependencia de ecommerce para lanzar Ecomload -->
+    <div class="initiative-card">
+      <h2>Eliminar dependencia de ecommerce para lanzar Ecomload</h2>
+      <p>Desacoplamiento de Ecomload del módulo ecommerce, permitiendo despliegue independiente.</p>
+      <span class="status-badge status-open">Open</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1513" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/eliminar-dependencia-ecommerce-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 10: Migración información personalización a IOP en ZARA -->
+    <div class="initiative-card">
+      <h2>Migración información personalización a IOP en ZARA</h2>
+      <p>Migración de datos de personalización a IOP para ZARA, mejorando capacidad y consistencia.</p>
+      <span class="status-badge status-open">Open</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1530" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/migracion-personalizacion-zara-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Iniciativa 11: Adopción Claims técnicos Oysho -->
+    <div class="initiative-card">
+      <h2>Adopción Claims técnicos Oysho</h2>
+      <p>Implementación del sistema de claims técnicos en Oysho, mejorando gestión de reclamaciones.</p>
+      <span class="status-badge status-open">Open</span>
+      <div class="links-group">
+        <a href="https://jira.inditex.com/jira/browse/PRODUCT-1540" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>JIRA</span>
+          <span>→</span>
+        </a>
+        <a href="projects/adopcion-claims-oysho-more.html" class="btn btn-secondary">
+          <span>Más info</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Iniciativas Product Lifecycle · Equipo Responsable de Producto · 2026</p>
+  </div>
+</div>
+</body>
+</html>

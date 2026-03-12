@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centralización de inicio de prewarming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f0f0f;
+      --bg-secondary: #1a1a1a;
+      --surface: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.7);
+      --text-tertiary: rgba(255,255,255,0.5);
+      --accent-blue: #00a8ff;
+      --accent-green: #28f76e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .page-wrapper { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+    @media (max-width: 768px) { .page-wrapper { padding: 40px 20px; } }
+
+    .header {
+      margin-bottom: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .header-content h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: rgba(0,168,255,0.15);
+      border-color: rgba(0,168,255,0.3);
+      color: var(--accent-blue);
+    }
+
+    .btn-primary:hover {
+      background: rgba(0,168,255,0.25);
+      border-color: rgba(0,168,255,0.5);
+    }
+
+    .btn-back {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+    }
+
+    .btn-back:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    section h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    section li {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    section li:before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .contact-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .contact-role {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+    }
+
+    .contact-email {
+      font-size: 13px;
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    .contact-email:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 60px;
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="header">
+    <div class="header-content">
+      <h1>Centralización de inicio de prewarming</h1>
+    </div>
+    <div class="header-actions">
+      <a href="https://jira.inditex.com/jira/browse/PRODUCT-1328" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <span>Ir a JIRA</span>
+        <span>→</span>
+      </a>
+      <a href="../index.html" class="btn btn-back">
+        <span>← Volver</span>
+      </a>
+    </div>
+  </div>
+
+  <section>
+    <h2>Resumen</h2>
+    <p>
+      Consolidación centralizada de los procesos de prewarming para optimizar la experiencia de usuario y reducir significativamente los tiempos de carga en aplicaciones.
+    </p>
+    <p>
+      Actualmente existen múltiples puntos de inicio de prewarming distribuidos que causan ineficiencias. Esta iniciativa propone centralizar estos procesos en un único punto de control.
+    </p>
+    <p>
+      La mejora esperada es una reducción del 30-40% en tiempos de carga iniciales y una mejor utilización de recursos de cache.
+    </p>
+  </section>
+
+  <section>
+    <h2>Decisiones pendientes</h2>
+    <ul>
+      <li>Identificar todos los puntos actuales de inicio de prewarming</li>
+      <li>Diseñar arquitectura centralizada de coordinación</li>
+      <li>Definir priorización de assets para prewarming</li>
+      <li>Establecer métricas de success y SLOs</li>
+      <li>Validar impacto en múltiples navegadores y dispositivos</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Temas pendientes completar</h2>
+    <ul>
+      <li>Implementación centralizada de caché en todos los nodos</li>
+      <li>Optimización de estrategias de prewarming</li>
+      <li>Validación de rendimiento en entornos críticos</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Enlaces de interés</h2>
+    <ul>
+      <li><a href="https://jira.inditex.com/jira/browse/PRODUCT-1328" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); text-decoration: none;">Ticket JIRA PRODUCT-1328</a></li>
+      <li><a href="#" style="color: var(--accent-blue); text-decoration: none;">Documentación de caché centralizada</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Personas de contacto</h2>
+    <div class="contact-card">
+      <div class="contact-name">Performance Engineer</div>
+      <div class="contact-role">Ingeniero de Rendimiento</div>
+      <a href="mailto:perf.eng@inditex.com" class="contact-email">perf.eng@inditex.com</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-name">DevOps Lead</div>
+      <div class="contact-role">Responsable DevOps</div>
+      <a href="mailto:devops.lead@inditex.com" class="contact-email">devops.lead@inditex.com</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-name">UX Manager</div>
+      <div class="contact-role">Responsable UX</div>
+      <a href="mailto:ux.manager@inditex.com" class="contact-email">ux.manager@inditex.com</a>
+    </div>
+  </section>
+
+  <div class="footer">
+    <p>Iniciativas Product Lifecycle · Equipo Responsable de Producto · 2026</p>
+  </div>
+</div>
+</body>
+</html>
